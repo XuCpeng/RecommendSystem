@@ -72,9 +72,9 @@ case class ESConfig(httpHosts:String, transportHosts:String, index:String, clust
 // 数据的主加载服务
 object DataLoader {
 
-  val MOVIE_DATA_PATH = "movies.csv"
-  val RATING_DATA_PATH = "ratings.csv"
-  val TAG_DATA_PATH = "tags.csv"
+  val MOVIE_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataloader/src/main/resources/movies.csv"
+  val RATING_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataloader/src/main/resources/ratings.csv"
+  val TAG_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataloader/src/main/resources/tags.csv"
 
   val MONGODB_MOVIE_COLLECTION = "Movie"
   val MONGODB_RATING_COLLECTION = "Rating"
@@ -97,7 +97,7 @@ object DataLoader {
 
 
     // 需要创建一个SparkConf配置
-    val sparkConf = new SparkConf().setAppName("DataLoader").setMaster(config("spark.cores"))
+    val sparkConf:SparkConf = new SparkConf().setAppName("DataLoader").setMaster(config("spark.cores"))
 
     // 创建一个SparkSession
     val spark = SparkSession.builder().config(sparkConf).getOrCreate()
@@ -160,7 +160,7 @@ object DataLoader {
     val newTag = tagDF.groupBy($"mid").agg(concat_ws("|",collect_set($"tag")).as("tags")).select("mid","tags")
 
     // 需要将处理后的Tag数据，和Moive数据融合，产生新的Movie数据，
-    val movieWithTagsDF = movieDF.join(newTag,Seq("mid","mid"),"left")
+    val movieWithTagsDF = movieDF.join(newTag,Seq("mid"),"left")
 
     // 声明了一个ES配置的隐式参数
     implicit  val esConfig: ESConfig = ESConfig(config("es.httpHosts"),config("es.transportHosts"),config("es.index"),config("es.cluster.name"))
@@ -223,8 +223,10 @@ object DataLoader {
   def storeDataInES(movieDF:DataFrame)(implicit eSConfig: ESConfig): Unit = {
 
     //新建一个配置
-    val settings:Settings = Settings.builder().put("cluster.name",eSConfig.clusterName).build()
-
+    val settings:Settings = Settings.builder()
+      .put("cluster.name",eSConfig.clusterName)
+      .build()
+    System.setProperty("es.set.netty.runtime.available.processors", "false")
     //新建一个ES的客户端
     val esClient = new PreBuiltTransportClient(settings)
 
