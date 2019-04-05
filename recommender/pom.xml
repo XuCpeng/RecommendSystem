@@ -14,6 +14,7 @@
     <modules>
         <module>dataLoader</module>
         <module>statisticsRecommender</module>
+        <module>offlineRecommender</module>
     </modules>
 
     <dependencies>
@@ -28,12 +29,6 @@
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming_2.11</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-mllib_2.11</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
@@ -58,7 +53,6 @@
             <version>2.4.0</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <!-- 如果父项目有声明plugin，那么子项目在引入的时候，不用声明版本和父项目已经声明的配置 -->
