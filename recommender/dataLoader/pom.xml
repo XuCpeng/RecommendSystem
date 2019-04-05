@@ -12,25 +12,6 @@
     <artifactId>dataloader</artifactId>
 
     <dependencies>
-        <!-- 引入Scala -->
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-        </dependency>
-
-        <!-- 加入MongoDB的驱动 -->
-        <!-- 用于代码方式连接MongoDB -->
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>casbah-core_2.11</artifactId>
-            <version>3.1.1</version>
-        </dependency>
-        <!-- 用于Spark和MongoDB的对接 -->
-        <dependency>
-            <groupId>org.mongodb.spark</groupId>
-            <artifactId>mongo-spark-connector_2.11</artifactId>
-            <version>2.4.0</version>
-        </dependency>
 
         <!-- 加入ElasticSearch的驱动 -->
         <!-- 用于代码方法连接ElasticSearch -->

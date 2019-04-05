@@ -30,7 +30,7 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient
   * tag1|tag2|tag3|....           电影的Tag
   **/
 
-case class Movie(mid: Int, name: String, descrit: String, timeLong: String, issue: String,
+case class Movie(mid: Int, name: String, descri: String, timeLong: String, issue: String,
                   shoot: String, language: String, genres: String, actors: String, directors: String)
 
 /**
@@ -72,9 +72,9 @@ case class ESConfig(httpHosts:String, transportHosts:String, index:String, clust
 // 数据的主加载服务
 object DataLoader {
 
-  val MOVIE_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataloader/src/main/resources/movies.csv"
-  val RATING_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataloader/src/main/resources/ratings.csv"
-  val TAG_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataloader/src/main/resources/tags.csv"
+  val MOVIE_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataLoader/src/main/resources/movies.csv"
+  val RATING_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataLoader/src/main/resources/ratings.csv"
+  val TAG_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataLoader/src/main/resources/tags.csv"
 
   val MONGODB_MOVIE_COLLECTION = "Movie"
   val MONGODB_RATING_COLLECTION = "Rating"
