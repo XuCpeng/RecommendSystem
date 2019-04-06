@@ -72,9 +72,9 @@ case class ESConfig(httpHosts:String, transportHosts:String, index:String, clust
 // 数据的主加载服务
 object DataLoader {
 
-  val MOVIE_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataLoader/src/main/resources/movies.csv"
-  val RATING_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataLoader/src/main/resources/ratings.csv"
-  val TAG_DATA_PATH = "/home/xcp/work/IdeaProjects/RecommendSystem/recommender/dataLoader/src/main/resources/tags.csv"
+  val MOVIE_DATA_PATH = "D:\\Projects\\idea\\RecommendSystem\\recommender\\dataLoader\\src\\main\\resources\\movies.csv"
+  val RATING_DATA_PATH = "D:\\Projects\\idea\\RecommendSystem\\recommender\\dataLoader\\src\\main\\resources\\ratings.csv"
+  val TAG_DATA_PATH = "D:\\Projects\\idea\\RecommendSystem\\recommender\\dataLoader\\src\\main\\resources\\tags.csv"
 
   val MONGODB_MOVIE_COLLECTION = "Movie"
   val MONGODB_RATING_COLLECTION = "Rating"
@@ -87,10 +87,10 @@ object DataLoader {
 
     val config = Map(
       "spark.cores" -> "local[*]",
-      "mongo.uri" -> "mongodb://localhost:27017/recommender",
+      "mongo.uri" -> "mongodb://192.168.142.128:27017/recommender",
       "mongo.db" -> "recommender",
-      "es.httpHosts" -> "localhost:9200",
-      "es.transportHosts" -> "localhost:9300",
+      "es.httpHosts" -> "192.168.142.128:9200",
+      "es.transportHosts" -> "192.168.142.128:9300",
       "es.index" -> "recommender",
       "es.cluster.name" -> "es-cluster"
     )

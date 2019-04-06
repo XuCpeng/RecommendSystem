@@ -75,7 +75,7 @@ object StatisticsRecommender {
 
     val config = Map(
       "spark.cores" -> "local[*]",
-      "mongo.uri" -> "mongodb://localhost:27017/recommender",
+      "mongo.uri" -> "mongodb://192.168.142.128:27017/recommender",
       "mongo.db" -> "recommender"
     )
 
