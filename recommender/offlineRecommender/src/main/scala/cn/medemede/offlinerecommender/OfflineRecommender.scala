@@ -49,7 +49,7 @@ case class Recommendation(rid:Int, r:Double)
 case class UserRecs(uid:Int, recs:Seq[Recommendation])
 
 //电影的相似度
-case class MovieRecs(uid:Int, recs:Seq[Recommendation])
+case class MovieRecs(mid:Int, recs:Seq[Recommendation])
 
 object OfflineRecommender {
 
