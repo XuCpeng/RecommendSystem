@@ -223,6 +223,5 @@ object StreamingRecommender {
 
     streamRecsCollection.findAndRemove(MongoDBObject("uid" -> uid))
     streamRecsCollection.insert(MongoDBObject("uid" -> uid, "recs" -> streamRecs.map(x=> x._1+":"+x._2).mkString("|")))
-
   }
 }
