@@ -4,34 +4,56 @@ import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
-import org.apache.kafka.streams.kstream.KStream;
-import org.apache.kafka.streams.kstream.KTable;
-import org.apache.kafka.streams.kstream.Materialized;
-import org.apache.kafka.streams.kstream.Produced;
+import org.apache.kafka.streams.Topology;
 
-import java.util.Arrays;
 import java.util.Properties;
+import java.util.concurrent.CountDownLatch;
 
 public class kafkaStreamsMain {
     public static void main(String[] args) {
-        String input = "abc";
-        String output="recommender";
-        Properties properties=new Properties();
-        properties.put(StreamsConfig.APPLICATION_ID_CONFIG,"recommender-stream-processor");
-        properties.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.142.128:9092");
-        properties.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-        properties.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+        if (args.length < 4) {
+            System.err.println("Usage: kafkaStream <brokers> <zookeepers> <from> <to>\n" +
+                    "  <brokers> is a list of one or more Kafka brokers\n" +
+                    "  <zookeepers> is a list of one or more Zookeeper nodes\n" +
+                    "  <from> is a topic to consume from\n" +
+                    "  <to> is a topic to product to\n\n");
+            System.exit(1);
+        }
+        String brokers = args[0];
+        String zookeepers = args[1];
+        String from = args[2];
+        String to = args[3];
 
-        StreamsBuilder builder = new StreamsBuilder();
+        Properties settings = new Properties();
+        settings.put(StreamsConfig.APPLICATION_ID_CONFIG, "logFilter");
+        settings.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, brokers);
+//        settings.put(StreamsConfig.ZOOKEEPER_CONNECT_CONFIG, zookeepers);
 
-        KStream<String, String> textLines = builder.stream("recommender");
-        KTable<String, Long> wordCounts = textLines
-                .flatMapValues(textLine -> Arrays.asList(textLine.toLowerCase().split("\\W+")))
-                .groupBy((key, word) -> word)
-                .count(Materialized.as("counts-store"));
-        wordCounts.toStream().to("recommender", Produced.with(Serdes.String(), Serdes.Long()));
 
-        KafkaStreams streams = new KafkaStreams(builder.build(), properties);
-        streams.start();
+        Topology builder = new Topology();
+
+        builder.addSource("SOURCE", from)
+                .addProcessor("PROCESS", LogProcessor::new, "SOURCE")
+                .addSink("SINK", to, "PROCESS");
+
+        KafkaStreams streams = new KafkaStreams(builder, settings);
+
+        final CountDownLatch latch = new CountDownLatch(1);
+        // attach shutdown handler to catch control-c
+        Runtime.getRuntime().addShutdownHook(new Thread("streams-shutdown-hook") {
+            @Override
+            public void run() {
+                streams.close();
+                latch.countDown();
+            }
+        });
+
+        try {
+            streams.start();
+            latch.await();
+        } catch (Throwable e) {
+            System.exit(1);
+        }
+        System.exit(0);
     }
 }
