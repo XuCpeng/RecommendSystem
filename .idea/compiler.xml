@@ -14,5 +14,8 @@
         <module name="businessServer" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="website" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

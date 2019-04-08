@@ -18,6 +18,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Properties;
 
+/*通过configuration类来实例化bean*/
 @Configuration
 public class Configure {
 

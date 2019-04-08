@@ -11,6 +11,7 @@ public class Recommendation {
     // 电影的推荐得分
     private Double score;
 
+
     public Recommendation() {
     }
 

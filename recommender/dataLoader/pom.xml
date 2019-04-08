@@ -18,13 +18,13 @@
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>transport</artifactId>
-            <version>${elasticsearce.version}</version>
+            <version>${es.version}</version>
         </dependency>
         <!-- 用于Spark和ElasticSearch的对接 -->
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch-spark-20_2.11</artifactId>
-            <version>${elasticsearce.version}</version>
+            <version>${es.version}</version>
             <!-- 将依赖的包从依赖路径中除去 -->
             <exclusions>
                 <exclusion>

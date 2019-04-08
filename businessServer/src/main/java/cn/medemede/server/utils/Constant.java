@@ -1,5 +1,6 @@
 package cn.medemede.server.utils;
 
+/*整个业务系统的常量*/
 public class Constant {
 
     //************** FOR MONGODB ****************
@@ -29,8 +30,7 @@ public class Constant {
     public static String MONGODB_GENRES_TOP_MOVIES_COLLECTION = "GenresTopMovies";
 
 
-
-    //************** FOR ELEASTICSEARCH ****************
+    //************** FOR ELASTICSEARCH ****************
 
     public static String ES_INDEX = "recom";
 
@@ -42,4 +42,5 @@ public class Constant {
     public static String MOVIE_RATING_PREFIX = "MOVIE_RATING_PREFIX";
 
     public static int REDIS_MOVIE_RATING_QUEUE_SIZE = 40;
+
 }
