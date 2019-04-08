@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>recommender</module>
+        <module>businessServer</module>
     </modules>
 
     <!-- 声明子项目公用的配置属性 -->
@@ -18,6 +19,31 @@
         <scala.version>2.11.12</scala.version>
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.26</slf4j.version>
+
+        <log4j2.version>2.11.2</log4j2.version>
+        <servlet.version>4.0.1</servlet.version>
+        <spring.version>5.1.6.RELEASE</spring.version>
+        <jackson.version>2.9.8</jackson.version>
+        <elasticsearce.version>6.7.0</elasticsearce.version>
+        <jedis.version>3.0.1</jedis.version>
+        <mongodb-driver.version>3.10.1</mongodb-driver.version>
+        <mongo-spark.version>2.4.0</mongo-spark.version>
+        <kafka.version>2.2.0</kafka.version>
+        <jblas.version>1.2.4</jblas.version>
+        <casbah.version>3.1.1</casbah.version>
+
+        <mysql.version>6.0.5</mysql.version>
+        <shiro.version>1.3.2</shiro.version>
+        <spring.data.jpa.version>1.11.0.RELEASE</spring.data.jpa.version>
+        <quartz.version>2.2.3</quartz.version>
+        <hibernate.version>5.2.6.Final</hibernate.version>
+        <camel.version>2.18.2</camel.version>
+        <freemarker.version>2.3.23</freemarker.version>
+        <config.version>1.10</config.version>
+        <hadoop.version>2.7.3</hadoop.version>
+        <net.sf.json.version>2.4</net.sf.json.version>
+        <activemq.version>5.14.3</activemq.version>
+
     </properties>
 
     <!-- 声明并引入子项目共有的依赖 -->
