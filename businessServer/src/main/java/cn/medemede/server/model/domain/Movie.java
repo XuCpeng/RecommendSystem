@@ -2,11 +2,6 @@ package cn.medemede.server.model.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 public class Movie {
 
     @JsonIgnore

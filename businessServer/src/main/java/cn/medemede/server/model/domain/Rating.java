@@ -2,7 +2,6 @@ package cn.medemede.server.model.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.io.Serializable;
 import java.util.Date;
 
 public class Rating {

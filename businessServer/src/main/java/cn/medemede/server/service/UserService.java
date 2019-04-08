@@ -5,9 +5,7 @@ import cn.medemede.server.model.domain.User;
 import cn.medemede.server.model.request.LoginUserRequest;
 import cn.medemede.server.model.request.RegisterUserRequest;
 import cn.medemede.server.utils.Constant;
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
@@ -18,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.List;
 
 @Service
 public class UserService {
