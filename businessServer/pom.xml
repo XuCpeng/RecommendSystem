@@ -83,16 +83,16 @@
         <plugins>
             <!--在Maven中提供Tomcat环境，还可以使用Jetty-->
             <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.version}</version>
                 <configuration>
-                    <!-- 指定访问端口 -->
-                    <port>9088</port>
-                    <!--运行根目录-->
-                    <path>/</path>
-                    <!--更改代码会后，Tomcat自动重载-->
-                    <contextReloadable>true</contextReloadable>
+                    <httpConnector>
+                        <port>${web.port}</port>
+                        <host>${web.host}</host>
+                    </httpConnector>
+                    <!--热部署扫描时间间隔-->
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
                 </configuration>
             </plugin>
         </plugins>
