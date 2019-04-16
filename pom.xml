@@ -10,8 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>recommender</module>
-        <module>businessServer</module>
-        <module>website</module>
+        <module>bussibessServer</module>
     </modules>
 
     <!-- 声明子项目公用的配置属性 -->
@@ -165,6 +164,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-
 </project>

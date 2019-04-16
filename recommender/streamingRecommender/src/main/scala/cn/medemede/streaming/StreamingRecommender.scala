@@ -96,7 +96,7 @@ object StreamingRecommender {
     }
 
     ratingStream.foreachRDD { rdd =>
-      rdd.map { case (uid, mid, score, timeSamp) =>
+      rdd.map { case (uid, mid, _, _) =>
         //获取当前最近的M次电影评分
         val userRecentlyRatings = getUserRecentlyRating(MAX_USER_RATINGS_NUM, uid, ConnHelper.jedis)
 
