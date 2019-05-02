@@ -8,3 +8,4 @@
 - flume-ng
 - zookeeper
 - azkaban
+- AnjularJS
