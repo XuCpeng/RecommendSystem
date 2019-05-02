@@ -11,6 +11,7 @@
     <modules>
         <module>recommender</module>
         <module>businessServer</module>
+        <module>website</module>
     </modules>
 
     <!-- 声明子项目公用的配置属性 -->
@@ -65,11 +66,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
+
         <!-- Logging End -->
     </dependencies>
 

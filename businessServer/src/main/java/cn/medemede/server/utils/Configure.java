@@ -52,15 +52,13 @@ public class Configure {
     //用于将jedis注册为一个bean
     @Bean("jedis")
     public Jedis getJedis(){
-        Jedis jedis = new Jedis(this.jedisHost);
-        return jedis;
+        return new Jedis(this.jedisHost);
     }
 
     //用于将mongoClient注册为一个bean
     @Bean("mongoClient")
     public MongoClient getMongoClient(){
-        MongoClient mongoClient = new MongoClient(this.mongoHost,this.mongoPort);
-        return mongoClient;
+        return new MongoClient(this.mongoHost, this.mongoPort);
     }
 
     //用于将esClient注册为一个bean

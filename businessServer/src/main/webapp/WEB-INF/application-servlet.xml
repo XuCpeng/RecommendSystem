@@ -12,7 +12,7 @@
     <!-- 能够让web启用web方面的注解 -->
     <mvc:annotation-driven>
         <!-- 给MVC框架注册消息装换器 -->
-        <mvc:message-converters register-defaults="true">
+        <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
