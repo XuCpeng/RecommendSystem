@@ -1,7 +1,7 @@
 # RecommendSystem
 
 - scala
-- Mongpdb
+- Mongdb
 - Redis
 - elasticsearch
 - Kafka
