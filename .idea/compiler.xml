@@ -10,9 +10,9 @@
         <module name="offlineRecommender" />
         <module name="streamingRecommender" />
         <module name="kafkaStream" />
-        <module name="website" />
-        <module name="statisticsRecommender" />
         <module name="businessServer" />
+        <module name="statisticsRecommender" />
+        <module name="website" />
       </profile>
     </annotationProcessing>
   </component>
