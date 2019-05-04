@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {User} from "../model/user";
 import {NavigationStart, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";

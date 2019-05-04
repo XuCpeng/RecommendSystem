@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ChartComponent } from './chart.component';
+import {ChartComponent} from './chart.component';
 
 describe('ChartComponent', () => {
   let component: ChartComponent;

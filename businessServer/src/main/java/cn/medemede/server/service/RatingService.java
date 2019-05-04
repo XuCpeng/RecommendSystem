@@ -1,6 +1,5 @@
 package cn.medemede.server.service;
 
-
 import cn.medemede.server.model.core.Rating;
 import cn.medemede.server.utils.Constant;
 import com.fasterxml.jackson.core.JsonProcessingException;

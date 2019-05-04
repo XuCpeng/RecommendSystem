@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Movie} from "../model/movie";
 import {HttpClient} from "@angular/common/http";
 import {LoginService} from "../services/login.service";
 import {Tag} from "../model/tag";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import 'rxjs/add/operator/switchMap';
 import {constant} from "../model/constant";
 

@@ -1,4 +1,4 @@
-import { MoviePage } from './app.po';
+import {MoviePage} from './app.po';
 
 describe('movie App', () => {
   let page: MoviePage;
