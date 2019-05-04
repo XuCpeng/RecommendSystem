@@ -1,10 +1,11 @@
 # RecommendSystem
 
 - scala
-- Mongpdb
+- Mongdb
 - Redis
 - elasticsearch
 - Kafka
 - flume-ng
 - zookeeper
 - azkaban
+- AnjularJS
