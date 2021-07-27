@@ -1,6 +1,4 @@
-# Movies Recommendation System
-
-## 基于组合推荐的电影推荐系统
+# 基于组合推荐的电影推荐系统
 
 该系统可根据用户的打分情况和类型偏好进行电影推荐， 实现了实时推荐与离线推荐两大功能， 分为推荐服务、后台服务、 可视化服务三大模块。 后台使用Spring MVC框架， 使用Scala和Spark进行推荐服务开发， 使用mongoDB作为数据库， 使用Redis作为业务缓存， 使用elasticsearch提供检索服务， 使用Flume和Kafka提供实时推荐的消息流。
 
